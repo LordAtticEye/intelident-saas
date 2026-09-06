@@ -1,0 +1,19 @@
+---
+description: Estándares de TypeScript, Tipado Estricto y Gobernanza de Código
+globs: **/*.{ts,tsx}
+---
+
+# Estándares de TypeScript y Clean Code
+
+## 1. Tipado Estricto y Prohibición de `any`
+- Queda prohibido el uso explícito de `any`. Emplear `unknown`, genéricos (`<T>`) o interfaces fuertemente tipadas.
+- Utilizar siempre el paquete `@intelident/shared` para interfaces de entidades de dominio (`IUser`, `IPatient`, `IAppointment`, `UserRole`).
+
+## 2. Tipado de Funciones y Componentes
+- Componentes React tipados con `React.FC<Props>` o funciones explícitas con retorno `JSX.Element`.
+- Props siempre declaradas con interfaces `interface ComponentNameProps { ... }`.
+- Controladores y servicios deben declarar tipos de retorno asíncronos (`Promise<ApiResponse<T>>`).
+
+## 3. Manejo de Errores y Validaciones
+- Emplear la clase personalizada `AppError` para excepciones controladas con códigos HTTP específicos.
+- Usar `Zod` o `express-validator` para validar payloads de entrada tanto en frontend como en backend.

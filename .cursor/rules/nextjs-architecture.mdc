@@ -1,0 +1,23 @@
+---
+description: Reglas de Arquitectura y Gobernanza para Next.js 15 y App Router
+globs: apps/frontend/**/*.{ts,tsx,js,jsx}
+---
+
+# Gobernanza y Arquitectura Next.js / React 19
+
+## 1. Separación de Componentes
+- **Server Components por Defecto:** Todo componente es React Server Component (RSC) salvo que requiera interactividad del navegador (estado local, event listeners, custom hooks).
+- **Client Components Explícitos:** Agregar la directiva `'use client'` únicamente al inicio de archivos con estado interactivo (ej. formularios dinámicos, stores reactivos, modales y visualizaciones en vivo).
+
+## 2. Nomenclatura y Convenciones
+- **Componentes:** PascalCase (ej. `AppointmentCard.tsx`, `DashboardLayout.tsx`).
+- **Hooks:** camelCase iniciando con `use` (ej. `useAuthStore.ts`, `useAppointments.ts`).
+- **Servicios y Utilidades:** camelCase o PascalCase para clases (ej. `OpenAIService.ts`, `apiClient.ts`).
+
+## 3. Server Actions y Mutaciones
+- Las Server Actions deben residir en archivos dedicados con `'use server'` o funciones server-side.
+- Validar siempre los datos de entrada mediante esquemas `Zod` antes de persistir en base de datos.
+- Proteger el contexto de ejecución mediante validación de sesión y roles RBAC (Admin, Dentista, Recepcionista, Paciente).
+
+## 4. Gestión de Estructuras Persistentes (Layouts)
+- No duplicar barras laterales ni headers; utilizar el **Layout Pattern** (`layout.tsx` / `DashboardLayout.tsx`) para retener el estado de navegación y evitar re-montajes.

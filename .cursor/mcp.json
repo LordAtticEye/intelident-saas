@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "mongodb-intelident": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-mongodb",
+        "mongodb+srv://cesarcvti22_db_user:FljmQXsiAKEv95v8@cluster0.zkemtpn.mongodb.net/intelident"
+      ]
+    },
+    "filesystem-intelident": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\marco\\OneDrive\\Escritorio\\intelident\\intelident"
+      ]
+    }
+  }
+}

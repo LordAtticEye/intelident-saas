@@ -1,0 +1,14 @@
+---
+description: Integración con Protocolo de Contexto de Modelos (MCP - Model Context Protocol)
+globs: **/*
+---
+
+# Gobernanza y Conectividad MCP (Model Context Protocol)
+
+## 1. Propósito de MCP
+El protocolo MCP permite a la IA acceder a fuentes de contexto externas (Bases de datos MongoDB, endpoints de n8n, sistema de archivos local y APIs REST) sin intermediarios manuales.
+
+## 2. Herramientas MCP Habilitadas
+- **MongoDB MCP Server:** Consulta esquemas, colecciones y verifica documentos clínicos directamente desde el chat del editor.
+- **Filesystem MCP:** Indexación y modificación multiarchivo manteniendo la integridad del monorepo.
+- **Git Context MCP:** Inspección del árbol de commits para generar notas de versión y trazabilidad de cambios asistidos por IA.

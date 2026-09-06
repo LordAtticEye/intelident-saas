@@ -1,0 +1,16 @@
+---
+description: Metodología Test-Driven Development (TDD) y Automatización de Pruebas Unitarias
+globs: **/__tests__/**/*.{ts,tsx},**/*.test.{ts,tsx}
+---
+
+# Directrices de TDD y Pruebas Unitarias
+
+## 1. Ciclo Red-Green-Refactor
+1. **Fase Roja (Red):** La IA debe generar primero la suite de pruebas unitarias que fallen antes de escribir la implementación.
+2. **Fase Verde (Green):** Implementar el código mínimo indispensable para que las pruebas pasen exitosamente.
+3. **Refactorización (Refactor):** Optimizar la solución asegurando que el 100% de la suite de pruebas permanezca en verde.
+
+## 2. Convenciones de Testing
+- **Estructura AAA:** Arrange (Preparar), Act (Actuar), Assert (Afirmar).
+- **Herramientas:** Vitest / Jest y React Testing Library.
+- **Mocks Controlados:** Emplear `vi.mock` / `jest.mock` para simular llamadas a servicios externos (OpenAI, endpoints HTTP, bases de datos).
