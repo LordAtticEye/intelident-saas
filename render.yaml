@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: intelident-backend-api
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build --workspace=packages/shared && npm run build --workspace=apps/backend
+    startCommand: node apps/backend/dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        value: mongodb+srv://cesarcvti22_db_user:FljmQXsiAKEv95v8@cluster0.zkemtpn.mongodb.net/intelident?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: super_secret_jwt_key_change_in_production_min_64_chars_intelident_saas_auth_2026
+      - key: FRONTEND_URL
+        value: https://intelident-saas.vercel.app
