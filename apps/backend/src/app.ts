@@ -26,7 +26,12 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin:      [process.env.FRONTEND_URL ?? 'http://localhost:3000'],
+  origin: [
+    process.env.FRONTEND_URL ?? 'http://localhost:5173',
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173',
+  ],
   credentials: true,
   methods:     ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -49,6 +54,23 @@ app.use(cookieParser());
 app.use(morgan('combined', {
   stream: { write: (msg) => logger.http(msg.trim()) },
 }));
+
+// ─── Ruta raíz informativa ─────────────────────────────────────────
+app.get('/', (_req, res) => {
+  res.json({
+    name:        'InteliDent API Backend',
+    version:     '1.0.0',
+    status:      'online',
+    frontendUrl: 'http://localhost:5173',
+    endpoints: {
+      health:       '/health',
+      auth:         '/api/v1/auth',
+      patients:     '/api/v1/patients',
+      appointments: '/api/v1/appointments',
+      chatbot:      '/api/v1/chatbot',
+    },
+  });
+});
 
 // ─── Health check ──────────────────────────────────────────────────
 app.get('/health', (_req, res) => {
