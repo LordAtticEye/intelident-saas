@@ -10,4 +10,12 @@ export default defineConfig({
       '@intelident/shared': path.resolve(__dirname, '../../packages/shared/src/index.ts'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
+  },
 })

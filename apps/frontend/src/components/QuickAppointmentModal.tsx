@@ -14,7 +14,7 @@ export const QuickAppointmentModal: React.FC<QuickAppointmentModalProps> = ({
   onSuccess,
 }) => {
   const [patientName, setPatientName] = useState('');
-  const [dentistId, setDentistId] = useState('dentist_main');
+  const [dentistId] = useState('dentist_main');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('10:00');
   const [treatmentType, setTreatmentType] = useState('Limpieza');

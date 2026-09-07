@@ -45,8 +45,6 @@ export const RegisterPage: React.FC = () => {
   const {
     register,
     handleSubmit,
-    setValue,
-    watch,
     formState: { errors, isDirty, touchedFields },
   } = useForm<RegisterForm>({
     resolver: zodResolver(registerSchema),
@@ -56,9 +54,6 @@ export const RegisterPage: React.FC = () => {
       acceptTerms: false,
     },
   });
-
-  const acceptPrivacyPolicy = watch('acceptPrivacyPolicy');
-  const acceptTerms = watch('acceptTerms');
 
   const registerMutation = useMutation({
     mutationFn: async (data: RegisterForm) => {

@@ -12,7 +12,8 @@
     "build": "npm run build --workspaces"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "docx": "^9.7.1"
   },
   "dependencies": {
     "mongodb": "^7.1.1"
