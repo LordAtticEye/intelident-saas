@@ -235,7 +235,7 @@ export const UsersPage: React.FC = () => {
                 }}
                 className="w-full p-2 border border-gray-200 text-sm focus:outline-none focus:border-gray-900"
               >
-                {Object.values(UserRole).map((role) => (
+                {(Object.values(UserRole) as UserRole[]).map((role) => (
                   <option key={role} value={role}>{roleLabels[role]}</option>
                 ))}
               </select>

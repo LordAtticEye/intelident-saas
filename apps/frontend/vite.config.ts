@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@intelident/shared': path.resolve(__dirname, '../../packages/shared/src/index.ts'),
+      '@intelident/shared': path.resolve(__dirname, 'src/shared/index.ts'),
     },
   },
   server: {
